@@ -4,6 +4,7 @@ import "./productPgImage.css"
 
 class ProductPg extends React.Component {
     state = {
+      // hi
     }
     componentDidMount() {
 
