@@ -2,6 +2,7 @@ import './App.css';
 import React from 'react';
 import * as ProductAPI from './ProductAPI'
 import ProductPg from './screens/productPg';
+import login from './components/loginPage';
 
 class App extends React.Component {
   state = {
@@ -19,7 +20,8 @@ class App extends React.Component {
     ) */
     return(
       <div>
-        <ProductPg id={10}/>
+        {/* <ProductPg id={10}/> */}
+        <login></login>
       </div> 
     )
   }
