@@ -1,5 +1,5 @@
 import React from "react"
-import ProductPgImage from "./components/productPgImages"
+import ProductPgImage from "../components/productPgImages"
 import "./productPgImage.css"
 
 class ProductPg extends React.Component {

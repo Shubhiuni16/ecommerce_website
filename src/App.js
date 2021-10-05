@@ -1,7 +1,7 @@
 import './App.css';
 import React from 'react';
 import * as ProductAPI from './ProductAPI'
-import ProductPg from './productPg';
+import ProductPg from './screens/productPg';
 
 class App extends React.Component {
   state = {
