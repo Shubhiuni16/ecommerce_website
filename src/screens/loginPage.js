@@ -1,9 +1,10 @@
 import './loginPage.css'
+import Logo from '../Images/flopkart1.png'
 const Login = () => {
     return(
             <div>
                 <div className="sidenav">
-                    <a href="https://codeenrrrun.github.io/Ecommerce/"><img src="flopkart1.png" alt="FlopKart logo" width="170" height="130"/></a>
+                    <a href="https://codeenrrrun.github.io/Ecommerce/"><img src={Logo} alt="FlopKart logo" width="170" height="130"/></a>
                     <div className="login-main-text">
                         <h2> FlopKart<br></br></h2>
                         <p>Login or register from here to access.</p>
