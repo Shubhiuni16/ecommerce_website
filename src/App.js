@@ -19,7 +19,7 @@ class App extends React.Component {
     ) */
     return(
       <div>
-        <ProductPg id={10}/>
+        <ProductPg id={5}/>
       </div> 
     )
   }

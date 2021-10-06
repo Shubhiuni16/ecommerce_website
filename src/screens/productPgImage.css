@@ -1,4 +1,4 @@
-.containerMain{
+.ProductPgContainer{
     display: flex; 
     flex-direction: row;
     margin-top: 3%;
@@ -22,8 +22,8 @@
 }
 .productImageContainer .wishlistButton {
     position: absolute;
-    top: 1%;
-    left: 90%;
+    top: 0.5%;
+    left: 80%;
     width: 10px;
     font-size: 40px;
 }
@@ -67,7 +67,7 @@ button{
 .DescriptionBox {
     border: 2px solid rgb(139, 45, 45) ;
     background-color:rgb(231, 221, 221)  ;
-    width: 98%;
+    width: 95%;
     margin-top:5% ;
     line-height: 2em;
     padding: 1%;
