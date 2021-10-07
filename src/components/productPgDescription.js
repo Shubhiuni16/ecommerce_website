@@ -21,7 +21,7 @@ const ProductPgDescription = (props) => {
             </div>
             <h1 className="offerPrice"><b> ${details.price}</b></h1>
             <h3 className="actualPrice"><strike> ${mrp}</strike></h3>
-            <h3 className="discount">{(mrp-details.price)/mrp*100}% DISCOUNT</h3>
+            <h3 className="discount">{((mrp-details.price)/mrp*100).toFixed(2)}% DISCOUNT</h3>
             <div className="DescriptionBox">
                 <b>{details.title}</b>
                 <br /><br /><b>ABOUT</b> : {details.description}

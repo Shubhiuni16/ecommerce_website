@@ -3,7 +3,6 @@ import Button from 'react-bootstrap/Button'
 import { Link } from 'react-router-dom'
 
 const ProductCard = (props) => {
-    const data=props
     return ( 
         <Card style={{ width: '18rem',display:"flex",justifyContent:"center",margin:"4px",border:"solid 2px #8B2D2D"}} key={props.id}>
             <Card.Img variant="top" src={props.img} width="30%" height="150px"/>

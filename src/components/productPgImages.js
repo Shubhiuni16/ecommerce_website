@@ -8,7 +8,9 @@ class ProductPgImage extends Component {
         this.state = {
             productImage:this.props.product.image,
             productTitle:this.props.product.title,
-            productPrice:this.props.product.price
+            productPrice:this.props.product.price,
+            productId:this.props.product.id,
+            orderTime:null
         }
     }
     /* componentDidMount() {
@@ -16,11 +18,15 @@ class ProductPgImage extends Component {
           this.setState({productImage:res.image})
         })
       } */
-    buyNow(){
-        alert("YAY!!! THE PRODUCT IS ORDERED")
+    buyNow(img,title,price,productId){
+        const Product={img,title,price,productId}
+        fetch("http://localhost:8000/orders",{
+        method:"POST",
+        headers:{"Content-Type":"application/json"},
+        body:JSON.stringify(Product)}).then(()=>alert("YAY!!! THE PRODUCT IS ORDERED"))
     }
-    addToCart(img,title,price){
-        const Product={img,title,price}
+    addToCart(img,title,price,productId){
+        const Product={img,title,price,productId}
         fetch("http://localhost:8000/cart",{
         method:"POST",
         headers:{"Content-Type":"application/json"},
@@ -44,8 +50,8 @@ class ProductPgImage extends Component {
                     <img id="extraImage3" className="unselected" onClick={()=>this.imageSelector('extraImage3')} src={this.state.productImage} width="80" height="80" />
                 </div>
                 <div className="buyBtns">
-                    <button className="addToCartbtn" onClick={()=>{this.addToCart(this.state.productImage,this.state.productTitle,this.state.productPrice)}}>ADD TO CART</button>
-                    <button className="buyNowbtn" onClick={()=>{this.buyNow()}}>BUY NOW</button>
+                    <button className="addToCartbtn" onClick={()=>{this.addToCart(this.state.productImage,this.state.productTitle,this.state.productPrice,this.state.productId)}}>ADD TO CART</button>
+                    <button className="buyNowbtn" onClick={()=>{this.buyNow(this.state.productImage,this.state.productTitle,this.state.productPrice,this.state.productId)}}>BUY NOW</button>
                 </div>
             </div>
          )

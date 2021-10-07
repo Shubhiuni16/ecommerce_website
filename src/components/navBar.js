@@ -1,7 +1,7 @@
 import Logo from '../Images/flopkart1.png'
 
 import Navbar from 'react-bootstrap/Navbar'
-import Container from 'react-bootstrap/Container';
+import Container from 'react-bootstrap/Container'
 import Nav from 'react-bootstrap/Nav'
 import Form from 'react-bootstrap/Form'
 import FormControl from 'react-bootstrap/FormControl'
@@ -23,6 +23,7 @@ const NavBar = () => {
     <Nav className="me-auto">
       <Nav.Link href="/Home">Home</Nav.Link>
       <Nav.Link href="/Cart">Cart</Nav.Link>
+      <Nav.Link href="/Orders">Orders</Nav.Link>
     </Nav>
     <Nav>
     <Form className="d-flex">

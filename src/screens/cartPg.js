@@ -9,12 +9,12 @@ const CartPg = () => {
     useEffect(()=>{
         fetch("http://localhost:8000/cart").then((res)=>res.json()).then((res)=>setCart(res)).then(()=>cartRep=cart)
     },[])
-    console.log(cart)
+   //console.log(cart)
     let cartPrice=cartRep?cartRep.reduce((a,v)=>a=a+v.price,0):0
     return <div>
                 <NavBar />
                 {cart&&<div>
-                        {cart.map((p)=>{return<CartProduct key={p.id} image={p.img} price={p.price} title={p.title}/>})}
+                        {cart.map((p)=>{return<CartProduct key={p.id} image={p.img} price={p.price} title={p.title} pId={p.productId} id={p.id}/>})}
                     </div>}
                     <div style={{display:"flex",alignItems:"center",flexFlow:"column"}}>
                         <h3>TOATL CART VALUE = ${cartPrice}</h3>

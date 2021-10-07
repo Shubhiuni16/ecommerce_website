@@ -1,27 +1,22 @@
 import { useEffect, useState } from "react";
-import CartProduct from "../components/cartProduct.js";
+import OrderedProduct from "../components/orderedProduct.js";
 import NavBar from '../components/navBar';
 
-const CartPg = () => {
-    const [cart,setCart]=new useState("")
-    let cartRep=cart
+const MyOrders = () => {
+    const [orders,setOrders]=new useState("")
     
-    useEffect(()=>{
-        fetch("http://localhost:8000/cart").then((res)=>res.json()).then((res)=>setCart(res)).then(()=>cartRep=cart)
+    useEffect(async()=>{
+        await fetch("http://localhost:8000/orders").then((res)=>res.json()).then((res)=>setOrders(res))
+        console.log("STATE MYORDERS",orders)
     },[])
-    console.log(cart)
-    let cartPrice=cartRep?cartRep.reduce((a,v)=>a=a+v.price,0):0
     return <div>
                 <NavBar />
-                {cart&&<div>
-                        {cart.map((p)=>{return<CartProduct key={p.id} image={p.img} price={p.price} title={p.title}/>})}
+                <h1 style={{color:"#8B2D2D",textAlign:"center",padding:"2px"}}>YOUR ORDERS</h1>
+                {orders&&<div>
+                        {orders.map((p)=>{return<OrderedProduct key={p.id} image={p.img} price={p.price} title={p.title} pId={p.productId}/>})}
                     </div>}
-                    <div style={{display:"flex",alignItems:"center",flexFlow:"column"}}>
-                        <h3>TOATL CART VALUE = ${cartPrice}</h3>
-                        <button >BUY NOW</button>
-                    </div>
             </div>
         
 }
  
-export default CartPg;
+export default MyOrders;
