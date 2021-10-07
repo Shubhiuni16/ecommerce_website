@@ -25,7 +25,7 @@ const Login = () => {
                                 </div>
                                 <button type="button" className="btn btn-black" id="validate">Login</button>
                                 <button type="submit" className="btn btn-secondary">Register</button>
-                                <Link to="/Home">Proceed Without Login</Link>
+                                <br /><Link to="/Home">Proceed Without Login</Link>
                             </form>
                         </div>
                     </div>
