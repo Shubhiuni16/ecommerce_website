@@ -1,4 +1,6 @@
 {
   "cart": [],
-  "orders": []
+  "orders": [],
+  "credentials" : [{"sudeep@gmail.com" : "qwerty123"}, {"shubhi@gmail.com" : "qwerty"}],
+  "check_login" : false
 }

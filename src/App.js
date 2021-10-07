@@ -6,6 +6,7 @@ import Login from './screens/loginPage';
 import Home from './screens/HomePg';
 import {Route,Switch,BrowserRouter as Router} from 'react-router-dom'
 import CartPg from './screens/cartPg';
+import Register from './screens/RegisterFormPg';
 
 class App extends React.Component {
   state = {
@@ -31,6 +32,8 @@ class App extends React.Component {
           <Route exact path="/product/:id"><ProductPg id={3}/></Route>
           <Route exact path="/Home"><Home /></Route>
           <Route path="/cart" component={CartPg}/>
+          <Route path="/register" component={Register}/>
+          <Route path="/Home" component={Home}/>
         </Switch>
       </div>
     </div>
