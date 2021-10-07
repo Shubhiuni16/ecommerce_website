@@ -1,5 +1,6 @@
 import './loginPage.css'
 import Logo from '../Images/flopkart1.png'
+import { Link } from 'react-router-dom';
 const Login = () => {
     return(
             <div>
@@ -24,6 +25,7 @@ const Login = () => {
                                 </div>
                                 <button type="button" className="btn btn-black" id="validate">Login</button>
                                 <button type="submit" className="btn btn-secondary">Register</button>
+                                <Link to="/Home">Proceed Without Login</Link>
                             </form>
                         </div>
                     </div>

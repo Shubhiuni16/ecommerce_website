@@ -19,8 +19,8 @@ const ProductPgDescription = (props) => {
                 <h1>{details.title}</h1>
                 <img onClick={()=>shareProduct()} src={shareBtn} width="20" height="20" align="right" padding="3px" />
             </div>
-            <h1 className="offerPrice"><b> ₹{details.price}</b></h1>
-            <h3 className="actualPrice"><strike> ₹{mrp}</strike></h3>
+            <h1 className="offerPrice"><b> ${details.price}</b></h1>
+            <h3 className="actualPrice"><strike> ${mrp}</strike></h3>
             <h3 className="discount">{(mrp-details.price)/mrp*100}% DISCOUNT</h3>
             <div className="DescriptionBox">
                 <b>{details.title}</b>

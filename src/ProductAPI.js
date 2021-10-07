@@ -11,7 +11,7 @@ const api = "https://fakestoreapi.com/products"
 /* username: "mor_2314",
 password: "83r5^_" */
 export const userLogin=(user,password)=>{
-   fetch('https://fakestoreapi.com/auth/login',{
+   return fetch('https://fakestoreapi.com/auth/login',{
             method:'POST',
             body:JSON.stringify({
                 username: user,
@@ -25,6 +25,10 @@ export const getAll =()=>
   fetch("https://fakestoreapi.com/products")
     .then(res => res.json())
 
+export const limitProducts=async (count)=>{
+    return await fetch(`https://fakestoreapi.com/products?limit=${count}`)
+            .then(res=>res.json())
+}
 export const getProductId=(id)=>{
    let x= id.toString();
    return fetch(`https://fakestoreapi.com/products/${x}`)
@@ -32,27 +36,27 @@ export const getProductId=(id)=>{
 }
 
 export const getCategories=()=>{
-   fetch('https://fakestoreapi.com/products/categories')
+   return fetch('https://fakestoreapi.com/products/categories')
             .then(res=>res.json())
 }
 export const productsWithCategory=(category)=>{
-   fetch(`https://fakestoreapi.com/products/category/${category}`)
+    return fetch(`https://fakestoreapi.com/products/category/${category}`)
             .then(res=>res.json())
 }
 
 //desc->descending------ asc->ascending-------------------------
 export const sortResult=(type)=>{
-   fetch(`https://fakestoreapi.com/products?sort=${type}`)
+    return fetch(`https://fakestoreapi.com/products?sort=${type}`)
             .then(res=>res.json())
 }
 
 export const getCartProducts=()=>{
-   fetch('https://fakestoreapi.com/carts')
+    return fetch('https://fakestoreapi.com/carts')
             .then(res=>res.json())
 }
 
 export const addToCart=(id,quantity)=>{
-   fetch('https://fakestoreapi.com/carts',{
+    return fetch('https://fakestoreapi.com/carts',{
             method:"POST",
             body:JSON.stringify(
                 {
