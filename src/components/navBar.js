@@ -22,7 +22,7 @@ const NavBar = () => {
   <Navbar.Collapse id="responsive-navbar-nav">
     <Nav className="me-auto">
       <Nav.Link href="/Home">Home</Nav.Link>
-      <Nav.Link href="/Product">About Us</Nav.Link>
+      <Nav.Link href="/Cart">Cart</Nav.Link>
     </Nav>
     <Nav>
     <Form className="d-flex">
