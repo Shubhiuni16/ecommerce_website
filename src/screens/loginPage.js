@@ -2,19 +2,27 @@ import { useEffect, useState } from "react";
 import './loginPage.css'
 import Logo from '../Images/flopkart1.png'
 import { Link } from 'react-router-dom';
-import Register from "./RegisterFormPg";
 const Login = (props) => {
     const [credentials,setCredentials]=new useState(null)
     const [user,setUser]=new useState("")
     const [pass,setPass]=new useState("")
-    const [status,setStatus] = new useState(true);
+    const [status,setStatus] = new useState(false);
     useEffect(()=>{
+        let loggedIn = {status}
+        console.log("loggedIn",loggedIn)
+        fetch("http://localhost:8000/LoginCheck/1",{
+            method:"PUT",
+            headers:{"Content-Type":"application/json"},
+            body:JSON.stringify(loggedIn)})
         fetch("http://localhost:8000/credentials").then((res)=>res.json()).then((res)=>setCredentials(res))
-    },[])
+    },[status])
     const LoginClicked=(e)=>{
+        // e.preventDefault();
         const logged=credentials.filter((c)=>{return user===c.user&&pass===c.password})
-        console.log(logged)
-        const loggedIn = {status}
+        console.log("MATCHED CREDENTIALS",logged)
+        setStatus(true)
+         let loggedIn = {status}
+        console.log("loggedIn",loggedIn,status)
         if(logged.length!==0){
             console.log("LOGGED IN")
             fetch("http://localhost:8000/LoginCheck/1",{
@@ -22,8 +30,11 @@ const Login = (props) => {
             headers:{"Content-Type":"application/json"},
             body:JSON.stringify(loggedIn)}).then(()=>{alert("YAY!!! LOGGED IN")
             props.history.push('/Home')})
-            }else
-            console.log("LOG IN AGAIN")
+            }else{
+                alert("INCORRECT CREDENTIALS")
+            props.history.push('/Home')
+            }
+       
     }
     return(
             <div>
