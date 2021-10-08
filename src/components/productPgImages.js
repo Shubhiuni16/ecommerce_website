@@ -10,27 +10,34 @@ class ProductPgImage extends Component {
             productTitle:this.props.product.title,
             productPrice:this.props.product.price,
             productId:this.props.product.id,
-            orderTime:null
+            orderTime:null,
+            loginStatus:false
         }
     }
-    /* componentDidMount() {
-        ProductAPI.getProductId(this.props.id).then((res) => {
-          this.setState({productImage:res.image})
-        })
-      } */
-    buyNow(img,title,price,productId){
+    componentDidMount() {
+        fetch("http://localhost:8000/LoginCheck/1").then((res)=>res.json()).then((res)=>{this.setState({loginStatus:res.status})})
+      }
+    buyNow(img,title,price,productId,logStat){
+        if(logStat){
         const Product={img,title,price,productId}
         fetch("http://localhost:8000/orders",{
         method:"POST",
         headers:{"Content-Type":"application/json"},
         body:JSON.stringify(Product)}).then(()=>alert("YAY!!! THE PRODUCT IS ORDERED"))
+        }else{
+            alert("PLEASE LOGIN TO ORDER")
+        }
     }
-    addToCart(img,title,price,productId){
+    addToCart(img,title,price,productId,logStat){
+        if(logStat){
         const Product={img,title,price,productId}
         fetch("http://localhost:8000/cart",{
         method:"POST",
         headers:{"Content-Type":"application/json"},
         body:JSON.stringify(Product)}).then(()=>alert("ITEM ADDED TO CART :)"))
+        }else{
+            alert("PLEASE LOGIN TO UPDATE CART")
+        }
     }
     imageSelector(imgId){
         console.log("CLICKED");
@@ -50,8 +57,8 @@ class ProductPgImage extends Component {
                     <img id="extraImage3" className="unselected" onClick={()=>this.imageSelector('extraImage3')} src={this.state.productImage} width="80" height="80" />
                 </div>
                 <div className="buyBtns">
-                    <button className="addToCartbtn" onClick={()=>{this.addToCart(this.state.productImage,this.state.productTitle,this.state.productPrice,this.state.productId)}}>ADD TO CART</button>
-                    <button className="buyNowbtn" onClick={()=>{this.buyNow(this.state.productImage,this.state.productTitle,this.state.productPrice,this.state.productId)}}>BUY NOW</button>
+                    <button className="addToCartbtn" onClick={()=>{this.addToCart(this.state.productImage,this.state.productTitle,this.state.productPrice,this.state.productId,this.state.loginStatus)}}>ADD TO CART</button>
+                    <button className="buyNowbtn" onClick={()=>{this.buyNow(this.state.productImage,this.state.productTitle,this.state.productPrice,this.state.productId,this.state.loginStatus)}}>BUY NOW</button>
                 </div>
             </div>
          )
